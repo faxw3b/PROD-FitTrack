@@ -229,4 +229,150 @@ export const MockTrainings: ITraining[] = [
     difficulty: 'Простое',
     isTemporary: false,
   },
+  {
+    id: 7,
+    title: 'Круговая тренировка на руки',
+    description:
+      'Интенсивная круговая тренировка из трех кругов, направленная на развитие силы и выносливости верхней части тела.',
+    exercises: [
+      {
+        exerciseId: MockExercises[15].id,
+        targetValue: 10,
+        order: 0,
+      },
+      {
+        exerciseId: MockExercises[4].id,
+        targetValue: 20,
+        order: 1,
+      },
+      {
+        exerciseId: MockExercises[1].id,
+        targetValue: 50,
+        order: 2,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 3,
+      },
+      {
+        exerciseId: MockExercises[15].id,
+        targetValue: 10,
+        order: 4,
+      },
+      {
+        exerciseId: MockExercises[4].id,
+        targetValue: 20,
+        order: 5,
+      },
+      {
+        exerciseId: MockExercises[1].id,
+        targetValue: 50,
+        order: 6,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 7,
+      },
+      {
+        exerciseId: MockExercises[15].id,
+        targetValue: 10,
+        order: 8,
+      },
+      {
+        exerciseId: MockExercises[4].id,
+        targetValue: 20,
+        order: 9,
+      },
+      {
+        exerciseId: MockExercises[1].id,
+        targetValue: 50,
+        order: 10,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 11,
+      },
+    ],
+    targetBodyParts: ['Грудь', 'Спина', 'Руки'],
+    duration: 1800,
+    restBetweenExercises: 60,
+    difficulty: 'Продвинутое',
+    isTemporary: false,
+  },
+  {
+    id: 8,
+    title: 'Круговая тренировка на плечи и предплечья',
+    description:
+      'Интенсивная круговая тренировка из трех кругов, направленная на развитие силы и выносливости плеч и предплечий.',
+    exercises: [
+      {
+        exerciseId: MockExercises[16].id,
+        targetValue: 10,
+        order: 0,
+      },
+      {
+        exerciseId: MockExercises[17].id,
+        targetValue: 10,
+        order: 1,
+      },
+      {
+        exerciseId: MockExercises[18].id,
+        targetValue: 20,
+        order: 2,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 3,
+      },
+      {
+        exerciseId: MockExercises[16].id,
+        targetValue: 10,
+        order: 4,
+      },
+      {
+        exerciseId: MockExercises[17].id,
+        targetValue: 10,
+        order: 5,
+      },
+      {
+        exerciseId: MockExercises[18].id,
+        targetValue: 20,
+        order: 6,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 7,
+      },
+      {
+        exerciseId: MockExercises[16].id,
+        targetValue: 10,
+        order: 8,
+      },
+      {
+        exerciseId: MockExercises[17].id,
+        targetValue: 10,
+        order: 9,
+      },
+      {
+        exerciseId: MockExercises[18].id,
+        targetValue: 20,
+        order: 10,
+      },
+      {
+        exerciseId: MockExercises[19].id,
+        targetValue: 20,
+        order: 11,
+      },
+    ],
+    targetBodyParts: ['Плечи', 'Руки'],
+    duration: 1800,
+    restBetweenExercises: 60,
+    difficulty: 'Среднее',
+    isTemporary: false,
+  },
 ];
