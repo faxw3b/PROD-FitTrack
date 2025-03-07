@@ -27,3 +27,4 @@ dist-ssr
 src/routeTree.gen.ts
 
 .env
+.env.local
