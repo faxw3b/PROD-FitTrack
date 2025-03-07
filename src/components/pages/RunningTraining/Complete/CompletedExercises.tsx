@@ -22,7 +22,7 @@ export const CompletedExercises = ({ completedExercises, skippedExercises }: ICo
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {completedExercises.map((exercise, index) => (
           <motion.div
-            key={exercise.id}
+            key={`completed-${exercise.id}-${index}`}
             className="flex items-center gap-3 bg-primary/10 rounded-lg p-3"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ export const CompletedExercises = ({ completedExercises, skippedExercises }: ICo
         ))}
         {skippedExercises.map((exercise, index) => (
           <motion.div
-            key={exercise.id}
+            key={`skipped-${exercise.id}-${index}`}
             className="flex items-center gap-3 bg-primary/10 rounded-lg p-3 text-muted-foreground"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

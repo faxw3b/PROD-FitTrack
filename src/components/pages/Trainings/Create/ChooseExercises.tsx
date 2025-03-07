@@ -58,8 +58,12 @@ export const ChooseExercises = ({ selectedExercises, setSelectedExercises, formV
     );
   };
 
-  const handleExerciseRemove = (exerciseId: number) => {
-    setSelectedExercises((prev) => prev.filter((ex) => ex.exerciseId !== exerciseId));
+  const handleExerciseRemove = (index: number) => {
+    setSelectedExercises((prev) => {
+      const newExercises = [...prev];
+      newExercises.splice(index, 1);
+      return newExercises.map((ex, i) => ({ ...ex, order: i }));
+    });
   };
 
   const handleGenerateExercises = () => {
@@ -125,16 +129,15 @@ export const ChooseExercises = ({ selectedExercises, setSelectedExercises, formV
       <ExerciseSelect
         options={exercises.map((ex) => ({ label: ex.title, value: ex.id.toString() }))}
         onSelect={(value) => handleExerciseAdd(Number(value))}
-        selectedValues={selectedExercises.map((ex) => ex.exerciseId.toString())}
         placeholder="Добавить упражнение"
       />
       <Reorder.Group axis="y" values={selectedExercises} onReorder={handleReorder} className="space-y-3 mt-4">
         {selectedExercises.map((exercise, index) => (
           <ChooseExerciseItem
-            key={exercise.exerciseId}
+            key={`${exercise.exerciseId}-${index}`}
             exercise={exercise}
             onValueChange={(value) => handleTargetValueChange(index, value)}
-            onRemove={() => handleExerciseRemove(exercise.exerciseId)}
+            onRemove={() => handleExerciseRemove(index)}
           />
         ))}
       </Reorder.Group>
