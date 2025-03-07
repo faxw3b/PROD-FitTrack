@@ -1,0 +1,32 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"],
+  "tailwindFunctions": ["cn", "clsx", "cva"],
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "printWidth": 120,
+  "importOrder": [
+    "^react$",
+    "^@tanstack/(.*)$",
+    "^motion/react$",
+    "^motion/react-m$",
+    "^lucide-react$",
+    "^@/(.*)$",
+    "^@/stores/(.*)$",
+    "^@/models/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/helpers/(.*)$",
+    "^@/constants/(.*)$",
+    "^@/components/(.*)$",
+    "^@/components/ui/(.*)$",
+    "^@/components/shared/(.*)$",
+    "^@/components/pages/(.*)$",
+    "^@/mocks/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}
