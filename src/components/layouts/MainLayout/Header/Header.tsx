@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
 import * as motion from 'motion/react-m';
 import { Dumbbell, Menu, X } from 'lucide-react';
@@ -13,6 +13,7 @@ export const Header = () => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const user = useUserStore((store) => store.user);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,7 +27,7 @@ export const Header = () => {
       animate={{ boxShadow: 'var(--box-shadow)', opacity: 1, y: 0 }}
       transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={headerRef}>
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center">
             <motion.div
@@ -91,7 +92,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <MobileMenu isOpen={isOpen} pathname={pathname} onClose={toggleMenu} />
+      <MobileMenu headerRef={headerRef} isOpen={isOpen} pathname={pathname} onClose={toggleMenu} />
     </motion.nav>
   );
 };

@@ -7,17 +7,23 @@ import { cn } from '@/lib/utils';
 import { navItems } from './navItems';
 
 interface MobileMenuProps {
+  headerRef: React.RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   pathname: string;
   onClose: () => void;
 }
 
-export const MobileMenu = ({ isOpen, pathname, onClose }: MobileMenuProps) => {
+export const MobileMenu = ({ headerRef, isOpen, pathname, onClose }: MobileMenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node) && isOpen) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        isOpen &&
+        !headerRef.current?.contains(event.target as Node)
+      ) {
         onClose();
       }
     };
@@ -25,7 +31,7 @@ export const MobileMenu = ({ isOpen, pathname, onClose }: MobileMenuProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, headerRef]);
 
   return (
     <AnimatePresence>
